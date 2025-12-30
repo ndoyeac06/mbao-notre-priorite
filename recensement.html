@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recensement - MBAO</title>
+
+<style>
+body{font-family:Arial;background:#f4f8fb;margin:0;}
+header{
+  background: linear-gradient(135deg, #4da6ff, #ffffff);
+  padding:40px 20px;
+  border-bottom-left-radius:25px;
+  border-bottom-right-radius:25px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  color:#fff;
+  text-align:center;
+}
+header img{
+  width:100px;
+  height:auto;
+  border-radius:15px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+  margin-bottom:10px;
+}
+header h1{
+  margin:0;
+  font-size:2rem;
+  color:#003366;
+}
+header p{
+  margin:5px 0 0;
+  font-size:1rem;
+  color:#004080;
+  font-style:italic;
+}
+
+section{max-width:500px;margin:30px auto;padding:20px}
+.card{background:white;padding:20px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+input,button{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:5px;
+  border:1px solid #ccc;
+  box-sizing:border-box;
+}
+button{
+  background:#4da6ff;
+  color:white;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+#msg{
+  margin-top:10px;
+  font-weight:bold;
+  color:green;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Logo MBAO">
+  <h1>MBAO Notre Priorité</h1>
+  <p>« Toujours au service de l’humanité »</p>
+</header>
+
+<section>
+  <h2>🧾 Recensement des Membres</h2>
+  <div class="card">
+    <form id="form">
+      <input id="nom" placeholder="Nom" required>
+      <input id="prenom" placeholder="Prénom" required>
+      <input id="tel" placeholder="Téléphone" required>
+      <input id="adresse" placeholder="Adresse" required>
+      <button>S’inscrire</button>
+    </form>
+    <p id="msg"></p>
+  </div>
+</section>
+
+<script>
+const form = document.getElementById("form");
+const msg = document.getElementById("msg");
+
+form.addEventListener("submit", e=>{
+  e.preventDefault();
+
+  const membres = JSON.parse(localStorage.getItem("membres")) || [];
+
+  const nouveauMembre = {
+    nom: nom.value,
+    prenom: prenom.value,
+    tel: tel.value,
+    adresse: adresse.value
+  };
+
+  membres.push(nouveauMembre);
+  localStorage.setItem("membres", JSON.stringify(membres));
+
+  // Enregistrer temporairement pour afficher le message sur index.html
+  localStorage.setItem("nouveauMembre", JSON.stringify(nouveauMembre));
+
+  msg.textContent = "✅ Merci ! Votre inscription a bien été prise en compte.";
+  form.reset();
+});
+</script>
+
+</body>
+</html>
