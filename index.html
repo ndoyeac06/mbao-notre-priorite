@@ -6,8 +6,9 @@
 <title>MBAO Notre Priorité</title>
 
 <style>
-:root{--bleu:#4da6ff}
-body{margin:0;font-family:Arial;background:#f4f8fb}
+:root{--bleu:#4da6ff;--bleu-fonce:#003366}
+body{margin:0;font-family:Arial;background:#f4f8fb;color:#003366;scroll-behavior:smooth}
+
 /* Entête stylé */
 header{
   background: linear-gradient(135deg, #4da6ff, #ffffff);
@@ -15,11 +16,9 @@ header{
   border-bottom-left-radius:25px;
   border-bottom-right-radius:25px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  color:#fff;
 }
 .header-container{
   display:flex;
-  flex-direction:row;
   align-items:center;
   justify-content:center;
   gap:20px;
@@ -27,18 +26,17 @@ header{
 }
 .logo{
   width:120px;
-  height:auto;
   border-radius:15px;
   box-shadow:0 2px 8px rgba(0,0,0,0.2);
 }
 .header-text h1{
   font-size:2.5rem;
   margin:0;
-  color:#003366;
+  color:var(--bleu-fonce);
 }
 .header-text p{
-  font-size:1.2rem;
-  margin:5px 0 0;
+  font-size:1.1rem;
+  margin:5px 0;
   color:#004080;
   font-style:italic;
 }
@@ -48,53 +46,50 @@ nav{
   background:#f4f8fb;
   text-align:center;
   padding:10px 0;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 nav a{
   margin:0 15px;
   color:var(--bleu);
   text-decoration:none;
   font-weight:bold;
+  padding:5px 10px;
+  border-radius:5px;
+}
+nav a.active{
+  background:var(--bleu);
+  color:white;
 }
 
-/* Sections et cartes */
-section{max-width:1000px;margin:auto;padding:40px 20px}
-.card{background:white;padding:20px;border-radius:8px;margin-bottom:30px}
-.member{
-  background:#eef6ff;
-  padding:10px;
-  margin-bottom:8px;
-  border-radius:5px;
-}
-.gallery img, .album img{
-  width:200px;
-  height:150px;
-  margin:5px;
-  border-radius:5px;
+/* Sections */
+section{max-width:1000px;margin:auto;padding:60px 20px}
+.card{background:white;padding:20px;border-radius:12px;margin-bottom:30px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}
+.gallery img, .album img, .shop-item img{
+  width:100%;
+  border-radius:10px;
 }
 .shop-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-  padding:10px;
   background:#eef6ff;
-  border-radius:5px;
+  padding:10px;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
-.shop-item img{
-  width:100px;
-  height:100px;
-  border-radius:5px;
-}
-.shop-item select, .shop-item span{
-  margin-left:10px;
-}
+.shop-item select, .shop-item span{margin-top:10px;}
 button.pay{
-  background:#4da6ff;
+  background:var(--bleu);
   color:white;
   border:none;
   padding:10px;
   cursor:pointer;
-  margin-left:10px;
+  margin-top:10px;
+  border-radius:5px;
 }
 
 /* Footer */
@@ -107,164 +102,165 @@ footer{
 
 /* Responsive */
 @media(max-width:600px){
-  .header-container{
-    flex-direction:column;
-    text-align:center;
-  }
-  .header-text h1{
-    font-size:2rem;
-  }
-  .header-text p{
-    font-size:1rem;
-  }
-  .shop-item{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .shop-item img{
-    margin-bottom:10px;
-  }
-  button.pay{
-    margin-left:0;
-    margin-top:5px;
-  }
+  .header-container{flex-direction:column;text-align:center}
+  .header-text h1{font-size:2rem}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-container">
-    <img src="WhatsApp Image 2025-12-31 at 07.51.05 (1).jpeg" alt="Logo MBAO" class="logo">
-    <div class="header-text">
-      <h1>MBAO NOTRE PRIORITÉ</h1>
-      <p>« Toujours au service de l’humanité »</p>
-
-  <p style="margin:5px 0 10px; font-size:1.2rem; font-style:italic; color:#004080;">« Toujours au service de l’humanité »</p>
-  <p style="font-size:1rem; margin-top:10px;">
-    📧 mbaonotrepriorite@gmail.com | 📞 77 493 83 05 <br>
-    🏢 Grand Mbao, en face de la Pharmacie Grand Mbao
-  </p>
-</header
-    </div>
-  </div>
-</header>
-
-<nav>
-  <a href="#presentation">Présentation</a>
-  <a href="#activites">Activités</a>
-  <a href="#galerie">Galerie</a>
-  <a href="#album">Album</a>
-  <a href="#bureau">Bureau</a>
-  <a href="#membres">Membres</a>
-  <a href="#boutique">Boutique</a>
-</nav>
-
-<section id="presentation">
-  <h2>Présentation</h2>
-  <div class="card">
-    <p>MBAO Notre Priorité est un mouvement citoyen créé le [Date de création] pour promouvoir la solidarité, l’entraide et le service à l’humanité.  
-    Depuis notre création, nous avons organisé de nombreuses actions sociales, ateliers et événements pour soutenir notre communauté.  
-    Notre équipe est composée de membres engagés, prêts à servir et à faire progresser nos initiatives.</p>
-  </div>
-</section>
-
-<section id="activites">
-  <h2>Nos activités passées</h2>
-  <div class="card">
-    <p>Voici quelques activités déjà réalisées :</p>
-    <img src="WhatsApp Image 2025-12-31 at 07.53.59.jpeg" alt="Atelier 1" width="300">
-    <img src="WhatsApp Image 2025-12-31 at 07.54.04.jpeg" alt="Atelier 2" width="300">
-  </div>
-</section>
-
-<section id="galerie">
-  <h2>Galerie</h2>
-  <div class="card gallery">
-    <img src="images/robe_bleue.jpg" alt="Robe bleue">
-    <img src="images/boubou_rose.jpg" alt="Boubou rose">
-  </div>
-</section>
-
-<section id="album">
-  <h2>Album</h2>
-  <div class="card album">
-    <img src="images/atelier_mbao1.jpg" alt="Album 1">
-    <img src="images/atelier_mbao2.jpg" alt="Album 2">
-    <img src="images/robe_bleue.jpg" alt="Album 3">
-    <img src="images/boubou_rose.jpg" alt="Album 4">
-  </div>
-</section>
-
-<section id="bureau">
-  <h2>Notre Bureau</h2>
-  <div class="card">
-    <p>Voici les membres de notre bureau :</p>
-    <ul>
-      <li>Président : [YOUSSOU NDOYE]</li>
-      <li>Secrétaire : [AWA CHEIKH NDOYE]</li>
-      <li>Trésorier : [MAMADOU .L.SECK]</li>
-    </ul>
-  </div>
-</section>
-
-<section id="membres">
-  <h2>Liste des membres</h2>
-  <div class="card" id="liste">
-    Aucun membre enregistré.
-  </div>
-  <p id="merci" style="color:green;font-weight:bold;margin-top:10px;"></p>
-  <p>Pour vous inscrire : <a href="recensement.html">Cliquez ici</a></p>
-</section>
-
-<section id="boutique">
-  <h2>Boutique en ligne</h2>
-  <div class="card">
-    <div class="shop-item">
-      <img src="WhatsApp Image 2025-12-31 at 07.51.27.jpeg" alt="Pull">
-      <span>Pull - 10 000 FCFA</span>
-      <select>
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-      </select>
-      <button class="pay">Orange Money</button>
-      <button class="pay">Wave</button>
-    </div>
-    <div class="shop-item">
-      <img src="WhatsApp Image 2025-12-31 at 08.13.46.jpeg" alt="T-shirt">
-      <span>T-shirt - 5 000 FCFA</span>
-      <select>
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-      </select>
-      <button class="pay">Orange Money</button>
-      <button class="pay">Wave</button>
-    </div>
-    <div class="shop-item">
-      <img src="WhatsApp Image 2025-12-31 at 08.11.14.jpeg" alt="Casquette">
-      <span>Casquette - 3 000 FCFA</span>
-      <button class="pay">Orange Money</button>
-      <button class="pay">Wave</button>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© MBAO Notre Priorité</p>
-</footer>
+<!-- EN-TÊTE -->
 <header>
   <div class="header-container">
     <img src="images/logo.png" alt="Logo MBAO" class="logo">
     <div class="header-text">
       <h1>MBAO NOTRE PRIORITÉ</h1>
       <p>« Toujours au service de l’humanité »</p>
-      <p style="font-size:0.9rem; color:#003366; margin-top:10px;">
-        📧 mbaonotrepriorite@gmail.com | 📞 77 493 83 05 <br>
+      <p style="font-size:1rem;margin-top:10px;">
+        📧 <a href="mailto:mbaonotrepriorite@gmail.com">mbaonotrepriorite@gmail.com</a> |
+        📞 <a href="https://wa.me/221774938305">77 493 83 05</a><br>
         🏢 Grand Mbao, en face de la Pharmacie Grand Mbao
       </p>
     </div>
   </div>
 </header>
+
+<!-- MENU FIXE -->
+<nav id="menu">
+  <a href="#presentation">Présentation</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#album">Album</a>
+  <a href="#bureau">Bureau</a>
+  <a href="#boutique">Boutique</a>
+</nav>
+
+<!-- PRÉSENTATION -->
+<section id="presentation">
+  <h2>Présentation</h2>
+  <div class="card">
+    <p>
+      <strong>MBAO Notre Priorité</strong> est un mouvement citoyen engagé pour la solidarité,
+      l’entraide et le développement communautaire.
+      Depuis sa création, le mouvement mène des actions sociales,
+      éducatives et humanitaires au service de la population.
+    </p>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+<h2>Galerie</h2>
+<div class="grid gallery">
+  <img src="images/photo1.jpg" alt="Photo 1">
+  <img src="images/photo2.jpg" alt="Photo 2">
+  <img src="images/photo3.jpg" alt="Photo 3">
+  <img src="images/photo4.jpg" alt="Photo 4">
+</div>
+</section>
+
+<!-- ALBUM -->
+<section id="album">
+<h2>Album</h2>
+<div class="grid album">
+  <img src="images/photo1.jpg" alt="Album 1">
+  <img src="images/photo2.jpg" alt="Album 2">
+</div>
+</section>
+
+<!-- BUREAU -->
+<section id="bureau">
+<h2>Membres du Bureau</h2>
+<div class="card">
+<ul>
+<li><strong>Président :</strong> Awa Cheikh Ndoye</li>
+<li><strong>Vice-président :</strong> Nom à renseigner</li>
+<li><strong>Secrétaire général :</strong> Nom à renseigner</li>
+<li><strong>Trésorier :</strong> Nom à renseigner</li>
+<li><strong>Commissaire aux comptes :</strong> Nom à renseigner</li>
+<li><strong>Chargé des relations extérieures :</strong> Nom à renseigner</li>
+<li><strong>Chargé de la communication :</strong> Nom à renseigner</li>
+<li><strong>Président commission santé sociale :</strong> Nom à renseigner</li>
+<li><strong>Président commission pédagogique :</strong> Nom à renseigner</li>
+<li><strong>Présidente commission environnement :</strong> Nom à renseigner</li>
+</ul>
+</div>
+</section>
+
+<!-- BOUTIQUE -->
+<section id="boutique">
+<h2>Boutique Officielle</h2>
+
+<div class="grid">
+
+<div class="shop-item">
+<img src="images/pull.jpg" alt="Pull MBAO">
+<h3>Pull MBAO</h3>
+<p>Prix : 10 000 FCFA</p>
+<p>Tailles : S – M – L – XL – XXL</p>
+<a href="https://wa.me/221774938305?text=Bonjour%20MBAO,%20je%20souhaite%20commander%20un%20Pull%20MBAO%2010000FCFA.%20Taille:%20___" target="_blank">
+<button class="pay">Commander via Wave</button></a>
+</div>
+
+<div class="shop-item">
+<img src="images/tshirt.jpg" alt="Tee-shirt MBAO">
+<h3>Tee-shirt MBAO</h3>
+<p>Prix : 5 000 FCFA</p>
+<p>Tailles : S – M – L – XL – XXL</p>
+<a href="https://wa.me/221774938305?text=Bonjour%20MBAO,%20je%20souhaite%20commander%20un%20Tee-shirt%20MBAO%205000FCFA.%20Taille:%20___" target="_blank">
+<button class="pay">Commander via Wave</button></a>
+</div>
+
+<div class="shop-item">
+<img src="images/casquette.jpg" alt="Casquette MBAO">
+<h3>Casquette MBAO</h3>
+<p>Prix : 3 000 FCFA</p>
+<p>Taille : Unique ajustable</p>
+<a href="https://wa.me/221774938305?text=Bonjour%20MBAO,%20je%20souhaite%20commander%20une%20Casquette%20MBAO%203000FCFA" target="_blank">
+<button class="pay">Commander via Wave</button></a>
+</div>
+
+</div>
+
+<div class="card">
+<p>
+📱 Paiement via <strong>Wave / Orange Money</strong><br>
+Numéro : <strong>77 493 83 05</strong><br>
+✅ Après paiement, la commande est envoyée automatiquement sur WhatsApp.
+</p>
+</div>
+</section>
+
+<!-- REMERCIEMENT -->
+<footer>
+<p>
+🙏 Merci à tous les membres, partenaires et sympathisants du mouvement
+<strong>MBAO Notre Priorité</strong>.<br>
+Ensemble, continuons à servir l’humanité.
+</p>
+</footer>
+
+<script>
+// Menu highlight dynamique
+const sections = document.querySelectorAll("section");
+const menuLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 80;
+    if(pageYOffset >= sectionTop){
+      current = section.getAttribute("id");
+    }
+  });
+  menuLinks.forEach(link => {
+    link.classList.remove("active");
+    if(link.getAttribute("href") === "#" + current){
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
